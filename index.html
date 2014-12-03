@@ -5,10 +5,10 @@
 	<title>MadLibs</title>
 	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
-	<!--script src="app.js"></script-->
+	<script src="app.js"></script>
 </head>
 	
-<body ng-app=''>
+<body ng-app='app' ng-controller='MainCtrl'>
 
 	<div class="container">
 	
@@ -20,40 +20,38 @@
 		<h3>Provide the following words:</h3>
 		<ul>
 			<li>
-				<input type="text" ng-model="word1" ng-init="word1='{{male_name}}'">
+				<input type="text" ng-model="words[0]">
 			</li>
 			<li>
-				<input type="text" ng-model="word2" ng-init="word2='{{job_title}}'">
+				<input type="text" ng-model="words[1]">
 			</li>
 			<li>
-				<input type="text" ng-model="word3" ng-init="word3='{{tedious_task}}'">
+				<input type="text" ng-model="words[2]">
 			</li>
 			<li>
-				<input type="text" ng-model="word4" ng-init="word4='{{dirty_task}}'">
+				<input type="text" ng-model="words[3]">
 			</li>
 			<li>
-				<input type="text" ng-model="word5" ng-init="word5='{{celebrity}}'">
+				<input type="text" ng-model="words[4]">
 			</li>
 			<li>
-				<input type="text" ng-model="word6" ng-init="word6='{{useless_skill}}'">
+				<input type="text" ng-model="words[5]">
 			</li>
 			<li>
-				<input type="text" ng-model="word7" ng-init="word7='{{adjective}}'">
+				<input type="text" ng-model="words[6]">
 			</li>
 			<li>
-				<input type="text" ng-model="word8" ng-init="word8='{{obnoxious_celebrity}}'">
+				<input type="text" ng-model="words[7]">
 			</li>
 			<li>
-				<input type="text" ng-model="word9" ng-init="word9='{{huge_number}}'">
+				<input type="text" ng-model="words[8]">
 			</li>
-			
-			
 		</ul>
 
 		<div class="madBody">
-			<p><b>{{word1}}</b> was a <b>{{word2}}</b> who loved technology. Although he loved parts of his job, he absolutely hated <b>{{word3}}</b> and <b>{{word4}}</b>. So, <b>{{word1}}</b> met with his life mentor <b>{{word5}}</b> who told him to learn how to <b>{{word6}}</b> with Thinkful. Thinkful didn't offer a course on <b>{{word6}}</b>, so he studied programming instead.<br>
+			<p><b>{{words[0]}}</b> was a <b>{{words[1]}}</b> who loved technology. Although he loved parts of his job, he absolutely hated <b>{{words[2]}}</b> and <b>{{words[3]}}</b>. So, <b>{{words[0]}}</b> met with his life mentor <b>{{words[4]}}</b> who told him to learn how to <b>{{words[5]}}</b> with Thinkful. Thinkful didn't offer a course on <b>{{words[5]}}</b>, so he studied programming instead.<br>
 			<br>
-			What a great decision! With his new skills <b>{{word1}}</b> built a(n) <b>{{word7}}</b> robot named <b>{{word8}}</b> that not only loved <b>{{word4}}</b> bud did it <b>{{word9}}</b> times faster.
+			What a great decision! With his new skills <b>{{words[0]}}</b> built a(n) <b>{{words[6]}}</b> robot named <b>{{words[7]}}</b> that not only loved <b>{{words[3]}}</b> bud did it <b>{{words[8]}}</b> times faster.
 			</p>
 		</div>
 
