@@ -23,6 +23,15 @@
 				<input type="text" ng-model="words[0]">
 			</li>
 			<li>
+				<p>{{words[0]}} is 
+					<select ng-model="gender">
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+					</select>
+
+				</p>
+			</li><br>
+			<li>
 				<input type="text" ng-model="words[1]">
 			</li>
 			<li>
@@ -49,9 +58,9 @@
 		</ul>
 
 		<div class="madBody">
-			<p><b>{{words[0]}}</b> was a <b>{{words[1]}}</b> who loved technology. Although he loved parts of his job, he absolutely hated <b>{{words[2]}}</b> and <b>{{words[3]}}</b>. So, <b>{{words[0]}}</b> met with his life mentor <b>{{words[4]}}</b> who told him to learn how to <b>{{words[5]}}</b> with Thinkful. Thinkful didn't offer a course on <b>{{words[5]}}</b>, so he studied programming instead.<br>
+			<p><b>{{words[0]}}</b> was a <b>{{words[1]}}</b> who loved technology and was an alpha {{gender}}. Although {{ output1 }} loved parts of {{ output2 }} job, {{ output1 }} absolutely hated <b>{{words[2]}}</b> and <b>{{words[3]}}</b>. So, <b>{{words[0]}}</b> met with {{ output2 }} life mentor <b>{{words[4]}}</b> who told {{ output3 }} to learn how to <b>{{words[5]}}</b> with Thinkful. Thinkful didn't offer a course on <b>{{words[5]}}</b>, so {{ output1 }} studied programming instead.<br>
 			<br>
-			What a great decision! With his new skills <b>{{words[0]}}</b> built a(n) <b>{{words[6]}}</b> robot named <b>{{words[7]}}</b> that not only loved <b>{{words[3]}}</b> bud did it <b>{{words[8]}}</b> times faster.
+			What a great decision! With {{ output2 }} new skills <b>{{words[0]}}</b> built a(n) <b>{{words[6]}}</b> robot named <b>{{words[7]}}</b> that not only loved <b>{{words[3]}}</b> bud did it <b>{{words[8]}}</b> times faster.
 			</p>
 		</div>
 
