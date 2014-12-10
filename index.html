@@ -4,7 +4,7 @@
 <head>
 	<title>MadLibs</title>
 	<link rel="stylesheet" href="style.css" />
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
 	<script src="app.js"></script>
 </head>
 	
@@ -17,52 +17,74 @@
 			<h1>Automate This!</h1>
 		</div>
 
-		<h3>Provide the following words:</h3>
-		<ul>
-			<li>
-				<input type="text" ng-model="words[0]">
-			</li>
-			<li>
-				<p>{{words[0]}} is 
-					<select ng-model="gender">
-						<option value="male">Male</option>
-						<option value="female">Female</option>
-					</select>
+		
+		<form name="myForm" ng-submit='submit()' novalidate ng-show='!showMad' >
+			<h3>Provide the following words:</h3>
+			<ul class="entries">
+				<li>
+					<input type="text" ng-model="words[0]" name="myName" placeholder="Name" required>
+				</li>
+				<li>
+					<p>{{words[0]}} is 
+						<select ng-model="gender">
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+						</select>
 
-				</p>
-			</li><br>
-			<li>
-				<input type="text" ng-model="words[1]">
-			</li>
-			<li>
-				<input type="text" ng-model="words[2]">
-			</li>
-			<li>
-				<input type="text" ng-model="words[3]">
-			</li>
-			<li>
-				<input type="text" ng-model="words[4]">
-			</li>
-			<li>
-				<input type="text" ng-model="words[5]">
-			</li>
-			<li>
-				<input type="text" ng-model="words[6]">
-			</li>
-			<li>
-				<input type="text" ng-model="words[7]">
-			</li>
-			<li>
-				<input type="text" ng-model="words[8]">
-			</li>
-		</ul>
+					</p>
+				</li><br>
+				<li>
+					<input type="text" ng-model="words[1]" name="jobTitle" placeholder="Job title" required>
+				</li>
+				<li>
+					<input type="text" ng-model="words[2]" name="tedious" placeholder="Tedious task" required>
+				</li>
+				<li>
+					<input type="text" ng-model="words[3]" name="dirty" placeholder="Dirty task" required>
+				</li>
+				<li>
+					<input type="text" ng-model="words[4]" name="celebrity" placeholder="Celebrity" required>
+				</li>
+				<li>
+					<input type="text" ng-model="words[5]" name="useless" placeholder="Useless skill" required>
+				</li>
+				<li>
+					<input type="text" ng-model="words[6]" name="adjective" placeholder="Adjective" required>
+				</li>
+				<li>
+					<input type="text" ng-model="words[7]" name="obnoxious" placeholder="Obnoxious celebrity" required>
+				</li>
+				<li>
+					<input type="number" ng-model="words[8]" name="number" placeholder="Huge number" required>
+				</li>
+				<li>
+					<input type="submit" value="Generate My Mad Lib" />
+				</li>
+			</ul>
 
-		<div class="madBody">
+			<p ng-if="myForm.$submitted && myForm.$invalid"><strong>Errors</strong></p>
+			<ul>
+				<li ng-if="myForm.$submitted && myForm.myName.$error.required">You must enter a Name</li>
+				<li ng-if="myForm.$submitted && myForm.jobTitle.$error.required">You must enter a Job Title</li>
+				<li ng-if="myForm.$submitted && myForm.tedious.$error.required">You must enter a Tedious Task</li>
+				<li ng-if="myForm.$submitted && myForm.dirty.$error.required">You must enter a Dirty Task</li>
+				<li ng-if="myForm.$submitted && myForm.celebrity.$error.required">You must enter a Celebrity's name</li>
+				<li ng-if="myForm.$submitted && myForm.useless.$error.required">You must enter a Useless Skill</li>
+				<li ng-if="myForm.$submitted && myForm.adjective.$error.required">You must enter an Adjective</li>
+				<li ng-if="myForm.$submitted && myForm.obnoxious.$error.required">You must enter an Obnoxious Celebrity's name</li>
+				<li ng-if="myForm.$submitted && myForm.number.$error.required">You must enter a Huge Number</li>
+				<li ng-if="myForm.$submitted && myForm.number.$error.number">The Huge Number you enter must be a number!</li>				
+			</ul>
+		</form>
+
+		<div class="madBody" ng-show="showMad">
 			<p><b>{{words[0]}}</b> was a <b>{{words[1]}}</b> who loved technology and was an alpha {{gender}}. Although {{ output1 }} loved parts of {{ output2 }} job, {{ output1 }} absolutely hated <b>{{words[2]}}</b> and <b>{{words[3]}}</b>. So, <b>{{words[0]}}</b> met with {{ output2 }} life mentor <b>{{words[4]}}</b> who told {{ output3 }} to learn how to <b>{{words[5]}}</b> with Thinkful. Thinkful didn't offer a course on <b>{{words[5]}}</b>, so {{ output1 }} studied programming instead.<br>
 			<br>
 			What a great decision! With {{ output2 }} new skills <b>{{words[0]}}</b> built a(n) <b>{{words[6]}}</b> robot named <b>{{words[7]}}</b> that not only loved <b>{{words[3]}}</b> bud did it <b>{{words[8]}}</b> times faster.
 			</p>
+			<button ng-click="empty()">Start Over</button>
 		</div>
+
 
 	</div>
 
