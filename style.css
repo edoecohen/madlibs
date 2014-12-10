@@ -21,11 +21,11 @@ body {
 	text-align: center;
 }
 
-ul {
+.entries {
 	list-style: none;
 }
 
-ul li {
+.entries li {
 	display: inline-block;
 }
 

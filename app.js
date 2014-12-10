@@ -1,6 +1,6 @@
 angular.module("app", [])
 	.controller("MainCtrl", function($scope) {
-		$scope.words=["{{ male name }}", "{{ job title }}", "{{ tedious task }}", "{{ dirty task }}", "{{ celebrity }}", "{{ useless skill }}", "{{ adjective }}", "{{ obnoxious celebrity }}", "{{ huge number }}"];
+		$scope.words=[];
 		$scope.gender="male";
 		$scope.$watch('gender', function () {
 			if ($scope.gender == "male") {
@@ -13,4 +13,18 @@ angular.module("app", [])
 				$scope.output3 = "her";
 			}
 		});
+
+		$scope.showMad = false;
+
+		$scope.submit = function() {
+			if ($scope.myForm.$valid) {
+				$scope.showMad = true;
+			};
+		};
+
+		$scope.empty = function() {
+			$scope.words.length = 0;
+			$scope.showMad = false;
+			$scope.myForm.$setPristine(true);
+		};
 	});
