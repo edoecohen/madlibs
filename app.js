@@ -1,4 +1,4 @@
-angular.module("app", [])
+angular.module("app", ["ngAnimate"])
 	.controller("MainCtrl", function($scope) {
 		$scope.words=[];
 		$scope.gender="male";
@@ -14,17 +14,18 @@ angular.module("app", [])
 			}
 		});
 
-		$scope.showMad = false;
+		$scope.showMad = true;
 
 		$scope.submit = function() {
 			if ($scope.myForm.$valid) {
-				$scope.showMad = true;
+				$scope.showMad = false;
 			};
 		};
 
 		$scope.empty = function() {
+			$scope.showMad = true;
 			$scope.words.length = 0;
-			$scope.showMad = false;
 			$scope.myForm.$setPristine(true);
 		};
+
 	});
